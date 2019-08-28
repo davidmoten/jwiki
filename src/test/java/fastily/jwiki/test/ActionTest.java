@@ -1,11 +1,13 @@
 package fastily.jwiki.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.Assert.*;
 
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import fastily.jwiki.core.NS;
 
@@ -15,26 +17,20 @@ import fastily.jwiki.core.NS;
  * @author Fastily
  *
  */
-public class ActionTests extends BaseMockTemplate
+public class ActionTest extends BaseMockTemplateTest
 {
 	/**
 	 * Sanity check to make sure the mock Wiki object is properly initialized.
+	 * @throws InterruptedException 
 	 */
 	@Test
-	public void testInitializationForSanity()
+	public void testInitializationForSanity() throws InterruptedException
 	{
 		assertEquals("File:Test.jpg", wiki.convertIfNotInNS("Test.jpg", NS.FILE));
 
-		try
-		{
 			assertTrue(server.takeRequest(2, TimeUnit.SECONDS).getHeader("User-Agent").contains("jwiki"));
-		}
-		catch (Throwable e)
-		{
-			e.printStackTrace();
-			fail(e);
-		}
-
+			
+			
 		assertEquals(NS.FILE.v, wiki.whichNS("File:Test.jpg").v);
 		assertEquals(NS.MAIN.v, wiki.whichNS("hello").v);
 	}
@@ -76,7 +72,8 @@ public class ActionTests extends BaseMockTemplate
 		}
 		catch (Throwable e)
 		{
-			fail("Should never reach here - is the classpath messed up or a test resource missing?", e);
+		    e.printStackTrace();
+			Assert.fail("Should never reach here - is the classpath messed up or a test resource missing?");
 		}
 	}
 

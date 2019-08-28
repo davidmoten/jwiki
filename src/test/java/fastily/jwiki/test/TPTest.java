@@ -1,11 +1,11 @@
 package fastily.jwiki.test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import fastily.jwiki.core.WParser;
 import fastily.jwiki.core.WParser.WTemplate;
@@ -19,7 +19,7 @@ import fastily.jwiki.util.FL;
  * @author Fastily
  *
  */
-public class TPTests
+public class TPTest
 {
 	/**
 	 * The Wiki object to use for this test set.

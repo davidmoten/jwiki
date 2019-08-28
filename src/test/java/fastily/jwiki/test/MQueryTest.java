@@ -1,12 +1,12 @@
 package fastily.jwiki.test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import fastily.jwiki.core.MQuery;
 import fastily.jwiki.core.Wiki;
@@ -19,7 +19,7 @@ import fastily.jwiki.util.FL;
  * @author Fastily
  *
  */
-public class MQueryTests
+public class MQueryTest
 {
 	/**
 	 * The Wiki object to use for this test set.
@@ -105,8 +105,8 @@ public class MQueryTests
 		assertTrue(result.containsKey("Category:Fastily Test"));
 		assertTrue(result.containsKey("Category:Fastily Test2"));
 
-		assertEquals(4, result.get("Category:Fastily Test"));
-		assertEquals(2, result.get("Category:Fastily Test2"));
+		assertEquals(4, (long) result.get("Category:Fastily Test"));
+		assertEquals(2, (long) result.get("Category:Fastily Test2"));
 	}
 
 	/**
@@ -141,9 +141,9 @@ public class MQueryTests
 	/**
 	 * Verifies that passing {@code null} as an element in a {@code titles} Collection is not permitted.
 	 */
-	@Test
+	@Test(expected=IllegalArgumentException.class)
 	public void testNullTitles()
 	{
-		assertThrows(IllegalArgumentException.class, () -> MQuery.exists(wiki, FL.toSAL("", null, "test")));
+		MQuery.exists(wiki, FL.toSAL("", null, "test"));
 	}
 }

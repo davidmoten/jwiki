@@ -1,12 +1,11 @@
 package fastily.jwiki.test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import fastily.jwiki.core.NS;
 import fastily.jwiki.dwrap.LogEntry;
@@ -20,7 +19,7 @@ import fastily.jwiki.util.Tuple;
  * @author Fastily
  *
  */
-public class MockQueryTests extends BaseMockTemplate
+public class MockQueryTest extends BaseMockTemplateTest
 {
 	/**
 	 * Mock fetching of random pages

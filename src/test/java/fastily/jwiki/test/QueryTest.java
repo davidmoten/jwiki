@@ -1,12 +1,12 @@
 package fastily.jwiki.test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import fastily.jwiki.core.NS;
 import fastily.jwiki.core.Wiki;
@@ -24,12 +24,12 @@ import okhttp3.HttpUrl;
  * @author Fastily
  *
  */
-public class QueryTests
+public class QueryTest
 {
 	/**
 	 * The wiki object to use for this test set.
 	 */
-	private static Wiki wiki = new Wiki.Builder().withDomain("test.wikipedia.org").build();
+	private static Wiki wiki = new Wiki.Builder().withDomain("test.wikipedia.org/wiki").build();
 	
 	/**
 	 * Tests for namespace handling

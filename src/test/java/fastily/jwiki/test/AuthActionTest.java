@@ -1,8 +1,7 @@
 package fastily.jwiki.test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 import fastily.jwiki.core.Wiki;
 
@@ -12,7 +11,7 @@ import fastily.jwiki.core.Wiki;
  * @author Fastily
  *
  */
-public class AuthActionTests extends BaseMockTemplate
+public class AuthActionTest extends BaseMockTemplateTest
 {
 	/**
 	 * Initializes a logged-in Wiki.

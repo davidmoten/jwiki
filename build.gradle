@@ -9,11 +9,13 @@ version="1.7.1"
 description="${project.name} build script"
 group="fastily"
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = 1.8
+targetCompatibility = 1.8 
 
 repositories {
-    jcenter()
+   maven {
+      url 'http://mvlrep001.infra.amsa.gov.au:8081/artifactory/repo/'
+    } 
 }
 
 dependencies {

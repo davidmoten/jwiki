@@ -117,11 +117,11 @@ public class WParser
 				switch (se.getName().getLocalPart())
 				{
 					case "title":
-						t.title = getNextElementText(r).strip();
+						t.title = getNextElementText(r).trim(); //TODO was strip for unicode aware
 						break;
 					case "name":
 						Attribute index = se.getAttributeByName(new QName("index"));
-						lastNameParsed = index != null ? index.getValue() : getNextElementText(r).strip();
+						lastNameParsed = index != null ? index.getValue() : getNextElementText(r).trim(); //TODO was strip for unicode aware
 						break;
 					case "equals":
 						getNextElementText(r);
@@ -332,7 +332,7 @@ public class WParser
 				b.append(o);
 
 			String out = b.toString();
-			return doTrim ? out.strip() : out;
+			return doTrim ? out.trim() : out; //TODO was strip for unicode aware
 		}
 	}
 
